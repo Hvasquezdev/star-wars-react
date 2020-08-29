@@ -1,4 +1,4 @@
-import React from 'react';
+import { useState, useEffect } from 'react';
 
 const fetchResource = async ({url, onStart, onLoading, onSuccess, onError}) => {
   try {
@@ -18,11 +18,11 @@ const fetchResource = async ({url, onStart, onLoading, onSuccess, onError}) => {
 };
 
 export const useFetch = (url) => {
-  const [response, setResponse] = React.useState(null);
-  const [loading, setLoading] = React.useState(true);
-  const [error, setError] = React.useState(null);
+  const [response, setResponse] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
-  React.useEffect(() => {
+  useEffect(() => {
     fetchResource({
       url,
       onStart: () => setResponse(null),

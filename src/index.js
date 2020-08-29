@@ -1,9 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-import { BrowserRouter as Router } from 'react-router-dom';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 
 import CharacterList from './CharacterList';
+import CharacterView from './CharacterView';
+
 import endpoint from './endpoint';
 import { useFetch } from './useFetch';
 
@@ -26,6 +28,8 @@ const Application = () => {
 
           {error && <p>{error.message}</p>}
         </section>
+
+        <Route path="/characters/:id" component={CharacterView} />
       </main>
     </div>
   );
